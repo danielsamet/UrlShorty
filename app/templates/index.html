@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Shorty</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+            integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"></script>
+    <style>
+        .inline-input {
+            background: inherit;
+            border: none;
+            border-bottom: 1px solid white;
+            outline: none;
+            height: 1.7em;
+        }
+
+        .inline-input:focus, .inline-input:hover {
+            border-color: #28a745;
+        }
+
+        .btn {
+            border-radius: 3px;
+            border-color: white;
+            color: white;
+            background: #343A40;
+            height: 2em;
+            line-height: .8em;
+        }
+
+        .btn:hover {
+            background: #28a745;
+            border-color: #28a745;
+        }
+    </style>
+</head>
+<body class="bg-dark">
+<div class="container pt-4">
+    <h1 class="text-center text-white">URLShorty!</h1>
+    <p class="text-center text-white-50 mt-2">Enter a slug and a forward url to get your very own short url!</p>
+
+    <hr class="my-5 border-success">
+
+    <div class="row">
+        <div class="col-4 input-group mb-3">
+            <label for="forward_url" class="font-weight-bold text-white mr-2">Shorten</label>
+            <input type="text" class="inline-input text-success" id="forward_url" name="forward_url" required>
+        </div>
+        <div class="col-4 input-group mb-3">
+            <label for="slug" class="font-weight-bold text-white mr-2">to</label>
+            <span class="text-success">localhost:2238/</span>
+            <input type="text" class="inline-input text-success" id="slug" name="slug" required>
+        </div>
+
+        <div class="col-4 text-center">
+            <button class="btn font-weight-bold mb-3" type="button" id="generate_link">Shorten</button>
+        </div>
+    </div>
+
+
+    <div class="valid-feedback">
+        Looks good!
+    </div>
+    <div class="invalid-feedback">
+        Looks bad!
+    </div>
+
+</div>
+
+<script>
+    jQuery(document).ready(function () {
+        let success_msg = $("#success_msg")
+        let failed_msg = $("#failed_msg")
+        let error_msg = $("#error_msg")
+        let short_url = $("#short_url")
+        let orig_url = $("#original_url")
+        let orig_url_input = $("#forward_url")
+
+        $("#generate_link").click(function () {
+            $.post("{{ url_for("routes.generate_link") }}",
+                {
+                    "slug": $("#slug").val(),
+                    "forward_url": orig_url_input.val()
+                })
+                .done(function (response) {
+                    console.log(response);
+                    failed_msg.addClass("d-none");
+                    success_msg.removeClass("d-none");
+                    short_url.text(response["short_url"])
+                    short_url.attr("href", response["short_url"])
+                    orig_url.text(orig_url_input.val())
+                })
+                .fail(function (response) {
+                    console.log(response["responseJSON"]);
+                    success_msg.addClass("d-none");
+                    failed_msg.removeClass("d-none");
+                    error_msg.text(response["responseJSON"]["status_msg"])
+                })
+        })
+    });
+</script>
+
+</body>
+</html>
