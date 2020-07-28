@@ -31,6 +31,8 @@ def index(slug=None):
 
 @bp.route("/generate_link", methods=["POST"])
 def generate_link():
+    # TODO: add data validation
+
     forward_url = request.form.get("forward_url", "", str)
     if not forward_url:
         return jsonify({"status_msg": "A forward_url must be supplied for link generation."}), 400
