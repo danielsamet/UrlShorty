@@ -16,65 +16,112 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
             integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
             crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"
+            integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg=="
+            crossorigin="anonymous"></script>
     <style>
-        .inline-input {
-            background: inherit;
-            border: none;
-            border-bottom: 1px solid white;
-            outline: none;
-            height: 1.7em;
+        .bg-purple {
+            background: #a232fe
         }
 
-        .inline-input:focus, .inline-input:hover {
-            border-color: #28a745;
+        .text-purple {
+            color: #a232fe;
         }
 
-        .btn {
-            border-radius: 3px;
-            border-color: white;
-            color: white;
-            background: #343A40;
-            height: 2em;
-            line-height: .8em;
-        }
-
-        .btn:hover {
-            background: #28a745;
-            border-color: #28a745;
+        .form-control-feedback {
+            position: absolute;
+            z-index: 2;
+            display: block;
+            width: 2.375rem;
+            height: 2.375rem;
+            line-height: 2rem;
+            text-align: center;
+            pointer-events: none;
+            color: #aaa;
         }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
+          rel="stylesheet">
 </head>
-<body class="bg-dark">
-<div class="container pt-4">
-    <h1 class="text-center text-white">URLShorty!</h1>
-    <p class="text-center text-white-50 mt-2">Enter a slug and a forward url to get your very own short url!</p>
+<body style="font-family: 'Roboto', serif;">
+<div class="" style="display: grid; grid-template-columns: minmax(150px, 150px) 1fr; min-height: 100vh;">
 
-    <hr class="my-5 border-success">
+    <div class="sidebar bg-danger">
 
-    <div class="row">
-        <div class="col-4 input-group mb-3">
-            <label for="forward_url" class="font-weight-bold text-white mr-2">Shorten</label>
-            <input type="text" class="inline-input text-success" id="forward_url" name="forward_url" required>
-        </div>
-        <div class="col-4 input-group mb-3">
-            <label for="slug" class="font-weight-bold text-white mr-2">to</label>
-            <span class="text-success">localhost:2238/</span>
-            <input type="text" class="inline-input text-success" id="slug" name="slug" required>
-        </div>
-
-        <div class="col-4 text-center">
-            <button class="btn font-weight-bold mb-3" type="button" id="generate_link">Shorten</button>
-        </div>
     </div>
 
-    <hr class="border-success">
+    <div class="main-content mx-5 mt-4">
+{#        <div class="form-group float-right mt-1">#}
+{#            <span class="fas fa-search form-control-feedback ml-3"></span>#}
+{#            <input type="text" class="form-control bg-light pl-5" style="width: 15em;" placeholder="Search">#}
+{#        </div>#}
 
-    <div class="alert alert-success alert-dismissible alert-shorten-response mt-5" role="alert">
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-        <h4 class="alert-heading">URL Shortened!</h4>
-        <p>You have successfully created the short address <a href="https://youtube.com" id="short_url">localhost:2238/yt</a></p>
+        <div class="w-100 text-center">
+            <h1 class="mb-0">UrlShorty</h1>
+            <p class="text-purple font-weight-bold">Optimised links</p>
+        </div>
+
+        <hr class="my-5">
+
+        <div class="card bg-purple" style="max-width: 30em; margin: auto; border-radius: 1.5em;">
+            <div class="accordion" id="accordionExample">
+                <div class="card-body text-white">
+                    <div class="row">
+                        <div class="col-9">
+                    <span class="fa-layers fa-fw fa-3x">
+                        <i class="fas fa-link"></i>
+                        <span class="fa-layers-counter bg-primary font-weight-bold">5</span>
+                    </span>
+                            <span class="ml-3" style="vertical-align: hanging;">urlshorty.com/<span
+                                    style="font-weight: 700">sample1</span></span>
+                        </div>
+                        <div class="col-3 text-right">
+                            <a href="#" class="text-white fa-2x float-right" style="font-weight: 100"
+                               data-toggle="collapse"
+                               data-target="#collapseOne6">
+                                <i class="fas fa-plus"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <hr class="border-white mt-3">
+                    <div id="collapseOne6" class="card-body-wrapper collapse" aria-labelledby="headingOne6"
+                         data-parent="#accordionExample6" style="">
+                        <div class="card-body">
+                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
+                            squid.
+                            3
+                            wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
+                            laborum
+                            eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
+                            nulla
+                            assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
+                            nesciunt
+                            sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
+                            farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
+                            accusamus
+                            labore sustainable VHS.
+                        </div>
+                    </div>
+                    <span class="font-italic blockquote-footer text-white">https://dribbble.com/shots/13912616-Course-web-app-Dashboard</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="card bg-purple mt-3" style="max-width: 30em; margin: auto; border-radius: 1.5em;">
+            <div class="card-body text-white">
+                <div class="row">
+                    <p class="col-9">urlshorty.com/<b>sample1</b></p>
+                    <div class="col-3 text-right">
+                        <p class="fa-layers fa-fw fa-3x">
+                            <i class="fas fa-link"></i>
+                            <span class="fa-layers-counter bg-primary font-weight-bold">5</span>
+                        </p>
+                    </div>
+                </div>
+                <hr class="border-white mt-0">
+                <span class="font-italic blockquote-footer text-white">https://dribbble.com/shots/13912616-Course-web-app-Dashboard</span>
+            </div>
+        </div>
     </div>
 </div>
 
