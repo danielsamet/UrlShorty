@@ -1,0 +1,93 @@
+body {
+    background: #E3E7F4;
+}
+
+.bg-purple {
+    background: #a232fe
+}
+
+.text-orange {
+    color: orange;
+}
+
+.btn-dark-orange {
+    background: #1B191C;
+    color: orange;
+}
+
+.btn-dark-orange:hover {
+    color: white;
+}
+
+.btn-simple-orange:hover {
+    text-decoration: underline;
+}
+
+.form-control-feedback {
+    position: absolute;
+    z-index: 2;
+    display: block;
+    width: 2.375rem;
+    height: 2.375rem;
+    line-height: 2rem;
+    text-align: center;
+    pointer-events: none;
+    color: #aaa;
+}
+
+.sidebar {
+    position: fixed;
+    width: 100px;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #1B191C;
+}
+
+.right-sidebar {
+    position: fixed;
+    width: 400px;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    display: block;
+    padding: 20px;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+    background-color: #DB352A;
+    border-left: 2px solid #1B191C;
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+}
+
+@media (max-width: 1080px) {
+    .right-sidebar {
+        display: none;
+    }
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        max-width: 1200px;
+        margin: auto;
+        padding-left: 140px; /* 180 + 40 */
+    }
+}
+
+@media (min-width: 1080px) {
+    .main-content {
+        max-width: 1200px;
+        margin: auto;
+        padding-right: 440px;
+        padding-left: 140px; /* 180 + 40 */
+    }
+}

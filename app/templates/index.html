@@ -19,110 +19,135 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"
             integrity="sha512-YSdqvJoZr83hj76AIVdOcvLWYMWzy6sJyIMic2aQz5kh2bPTd9dzY3NtdeEAzPp/PhgZqr4aJObB3ym/vsItMg=="
             crossorigin="anonymous"></script>
-    <style>
-        .bg-purple {
-            background: #a232fe
-        }
-
-        .text-purple {
-            color: #a232fe;
-        }
-
-        .form-control-feedback {
-            position: absolute;
-            z-index: 2;
-            display: block;
-            width: 2.375rem;
-            height: 2.375rem;
-            line-height: 2rem;
-            text-align: center;
-            pointer-events: none;
-            color: #aaa;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ url_for("static", filename="css/main.css") }}">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap"
           rel="stylesheet">
 </head>
 <body style="font-family: 'Roboto', serif;">
-<div class="" style="display: grid; grid-template-columns: minmax(150px, 150px) 1fr; min-height: 100vh;">
+<div class="" style="">
 
-    <div class="sidebar bg-danger">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="sidebar"></div>
 
-    </div>
+            <div class="main-content col-sm-12 mt-4">
 
-    <div class="main-content mx-5 mt-4">
-{#        <div class="form-group float-right mt-1">#}
-{#            <span class="fas fa-search form-control-feedback ml-3"></span>#}
-{#            <input type="text" class="form-control bg-light pl-5" style="width: 15em;" placeholder="Search">#}
-{#        </div>#}
+                <div class="w-100 text-center text-white"
+                     style="border: 0 solid black; border-radius: 3em; background: black;">
+                    <h1 class="mb-0">UrlShorty</h1>
+                    <p class="text-orange font-weight-bold">Optimising your links</p>
+                </div>
 
-        <div class="w-100 text-center">
-            <h1 class="mb-0">UrlShorty</h1>
-            <p class="text-purple font-weight-bold">Optimised links</p>
-        </div>
+                <hr class="my-5">
 
-        <hr class="my-5">
 
-        <div class="card bg-purple" style="max-width: 30em; margin: auto; border-radius: 1.5em;">
-            <div class="accordion" id="accordionExample">
-                <div class="card-body text-white">
-                    <div class="row">
-                        <div class="col-9">
-                    <span class="fa-layers fa-fw fa-3x">
-                        <i class="fas fa-link"></i>
-                        <span class="fa-layers-counter bg-primary font-weight-bold">5</span>
-                    </span>
-                            <span class="ml-3" style="vertical-align: hanging;">urlshorty.com/<span
-                                    style="font-weight: 700">sample1</span></span>
-                        </div>
-                        <div class="col-3 text-right">
-                            <a href="#" class="text-white fa-2x float-right" style="font-weight: 100"
-                               data-toggle="collapse"
-                               data-target="#collapseOne6">
-                                <i class="fas fa-plus"></i>
-                            </a>
+                <div class="row mb-5">
+                    <div class="form-group col-8">
+                        <label for="orig_url">Original URL</label>
+                        <textarea class="form-control" id="orig_url" style=""></textarea>
+                        <small class="form-text text-muted">Squeeze this url</small>
+                    </div>
+
+                    <div class="col-1 text-center" style="margin-top: 1.4em; font-size: x-large">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+
+                    <div class="form-group col-3">
+                        <label for="exampleInputEmail1">New URL</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                        <small id="emailHelp" class="form-text text-muted">Into this url</small>
+                    </div>
+                </div>
+
+                <div class="card" style="max-width: 30em; margin: auto; border-radius: 1.5em; background: #1B191C;">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card-body text-white">
+                            <div class="row">
+                                <div class="col-9">
+                                    <p class="ml-3 mb-0" style="margin-top: .7em;">
+                                        urlshorty.com/
+                                        <span style="font-weight: 700">sample1</span>
+                                    </p>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <span class="fa-layers fa-fw fa-3x">
+                                        <i class="fas fa-link" style="color: orange;"></i>
+                                        <span class="fa-layers-counter bg-dark font-weight-bold">5</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <hr class="border-white mt-3">
+                            <span class="font-italic blockquote-footer text-white">https://dribbble.com/shots/13912616-Course-web-app-Dashboard</span>
                         </div>
                     </div>
-                    <hr class="border-white mt-3">
-                    <div id="collapseOne6" class="card-body-wrapper collapse" aria-labelledby="headingOne6"
-                         data-parent="#accordionExample6" style="">
-                        <div class="card-body">
-                            Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad
-                            squid.
-                            3
-                            wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                            laborum
-                            eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
-                            nulla
-                            assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                            nesciunt
-                            sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer
-                            farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them
-                            accusamus
-                            labore sustainable VHS.
+                </div>
+
+                <div class="card mt-4"
+                     style="max-width: 30em; margin: auto; border-radius: 1.5em; background: #1B191C;">
+                    <div class="accordion" id="accordionExample">
+                        <div class="card-body text-white">
+                            <div class="row">
+                                <div class="col-9">
+                                    <span class="fa-layers fa-fw fa-3x">
+                                        <i class="fas fa-link"></i>
+                                        <span class="fa-layers-counter bg-primary font-weight-bold">5</span>
+                                    </span>
+                                    <span class="ml-3" style="vertical-align: hanging;">
+                                                urlshorty.com/
+                                        <span style="font-weight: 700">sample1</span>
+                                    </span>
+                                </div>
+                                <div class="col-3 text-right">
+                                    <a href="#" class="text-white fa-2x float-right" style="font-weight: 100;"
+                                       data-toggle="collapse"
+                                       data-target="#collapseOne6">
+                                        <i class="fas fa-plus" style=" color: orange;"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <hr class="border-white mt-3">
+                            <div id="collapseOne6" class="card-body-wrapper collapse" aria-labelledby="headingOne6"
+                                 data-parent="#accordionExample6" style="">
+                                <div class="card-body">
+                                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry
+                                    richardson ad squid.
+                                </div>
+                            </div>
+                            <span class="font-italic blockquote-footer text-white">https://dribbble.com/shots/13912616-Course-web-app-Dashboard</span>
                         </div>
                     </div>
-                    <span class="font-italic blockquote-footer text-white">https://dribbble.com/shots/13912616-Course-web-app-Dashboard</span>
+                </div>
+            </div>
+
+            <div class="right-sidebar">
+                {#                <div class="form-group mt-4">#}
+                {#                    <span class="fas fa-search form-control-feedback ml-3"></span>#}
+                {#                    <input type="text" class="form-control bg-light pl-5" style="width: 15em;" placeholder="Search">#}
+                {#                </div>#}
+
+                <div class="row justify-content-end mt-2 mr-2">
+                    <button class="btn btn-simple-orange mr-2">Sign Up</button>
+                    <button class="btn btn-dark-orange ml-2">Login</button>
+                </div>
+
+                <div class="card text-white px-2"
+                     style="background: #1B191C; position: absolute; bottom: 6em; right: 1em; border-radius: 2em; width: 23em;">
+                    <div class="card-header h5 pb-1" style="color: orange;">
+                        What Does UrlShorty Do?
+                    </div>
+                    <div class="card-body py-0">
+                        UrlShorty will shorten your urls by creating a custom one that routes through us. This let's you
+                        track the usage of your url!
+                    </div>
+                    <div class="card-footer text-muted">
+                        Daniel
+                    </div>
                 </div>
             </div>
         </div>
-
-        <div class="card bg-purple mt-3" style="max-width: 30em; margin: auto; border-radius: 1.5em;">
-            <div class="card-body text-white">
-                <div class="row">
-                    <p class="col-9">urlshorty.com/<b>sample1</b></p>
-                    <div class="col-3 text-right">
-                        <p class="fa-layers fa-fw fa-3x">
-                            <i class="fas fa-link"></i>
-                            <span class="fa-layers-counter bg-primary font-weight-bold">5</span>
-                        </p>
-                    </div>
-                </div>
-                <hr class="border-white mt-0">
-                <span class="font-italic blockquote-footer text-white">https://dribbble.com/shots/13912616-Course-web-app-Dashboard</span>
-            </div>
-        </div>
     </div>
+    <div class=""
+         style="position: absolute; width: 100%; bottom: 0; left: 0; z-index: 2000; height: 5em; background-image: url('{{ url_for("static", filename="images/link_img.png") }}'); background-repeat: repeat-x;"></div>
 </div>
 
 <script>
